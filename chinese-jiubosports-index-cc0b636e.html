@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九博体育 · 轻量导航介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            background-color: #f7f6f4;
+            color: #2e2b28;
+        }
+
+        /* 深色头图 — 导航区 */
+        .dark-hero {
+            background: linear-gradient(145deg, #1a1c1e 0%, #101214 100%);
+            color: #e9e6e0;
+            padding: 1.8rem 2rem 2.8rem;
+            text-align: center;
+            border-bottom: 1px solid #3a3733;
+        }
+
+        .dark-hero .logo-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .dark-hero .brand-icon {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #c9a96c;
+            border-radius: 8px 2px 8px 2px;
+        }
+
+        .dark-hero h1 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            word-break: keep-all;
+        }
+
+        .dark-hero .sub-head {
+            font-size: 1rem;
+            color: #b4ada3;
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+            border-top: 1px solid #3d3a35;
+            padding-top: 1rem;
+        }
+
+        /* 简易导航（内嵌于深色区） */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1.6rem 0 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: #c5bcae;
+            text-decoration: none;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid transparent;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #c9a96c;
+            color: #f0e9db;
+        }
+
+        /* 正文浅色区 */
+        .content-wrap {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem 3.5rem;
+        }
+
+        /* 核心介绍 */
+        .intro-block {
+            background: #ffffff;
+            padding: 2.2rem 2.2rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-block h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #1f1d1a;
+            border-left: 5px solid #c9a96c;
+            padding-left: 1rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1.2rem;
+            max-width: 80ch;
+        }
+
+        .intro-block .link-sentence {
+            background: #f3f0eb;
+            padding: 0.6rem 1rem 0.6rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 0.4rem;
+        }
+
+        .intro-block a {
+            color: #9b7e4b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dac29a;
+        }
+
+        .intro-block a:hover {
+            color: #7a6137;
+            border-bottom-color: #7a6137;
+        }
+
+        /* 三个场景模块 — 卡片网格 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2rem 0 2.8rem;
+        }
+
+        @media (max-width: 720px) {
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.4rem 1.8rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: 0.2s;
+            border: 1px solid #eae6df;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .scene-card .emoji-marker {
+            font-size: 1.8rem;
+            margin-bottom: 0.65rem;
+            display: block;
+        }
+
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #1f1d1a;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #5a534b;
+        }
+
+        /* 常见说明 (FAQ 摘要风格) */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.6rem;
+            margin: 2.2rem 0 1.8rem;
+            border: 1px solid #e3dfd7;
+        }
+
+        .faq-section h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1f1d1a;
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.1rem;
+            border-bottom: 1px dashed #e2dbd1;
+            padding-bottom: 0.9rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item strong {
+            display: inline-block;
+            color: #2b2722;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            margin: 0.25rem 0 0 0;
+            font-size: 0.93rem;
+            color: #5a5249;
+        }
+
+        .faq-item .tag {
+            background: #ede8e0;
+            border-radius: 30px;
+            padding: 0.1rem 0.7rem;
+            font-size: 0.7rem;
+            color: #796d5f;
+            margin-left: 0.5rem;
+            display: inline-block;
+        }
+
+        /* 提示块 */
+        .notice-tip {
+            background: #f4f1eb;
+            border-left: 4px solid #c9a96c;
+            padding: 1.2rem 1.8rem;
+            border-radius: 0 16px 16px 0;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .notice-tip a {
+            color: #9b7e4b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .notice-tip a:hover {
+            color: #6f5a32;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            padding: 1.2rem 0 0.8rem;
+            font-size: 0.85rem;
+            color: #8f867b;
+            border-top: 1px solid #ddd8cf;
+            margin-top: 2.4rem;
+        }
+
+        .footer-note a {
+            color: #9b7e4b;
+            text-decoration: none;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 + 顶部导航 -->
+    <header class="dark-hero">
+        <div class="logo-line">
+            <span class="brand-icon"></span>
+            <h1>九博体育</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#intro">核心介绍</a>
+            <a href="#scenes">场景模块</a>
+            <a href="#faq">常见说明</a>
+        </div>
+        <div class="sub-head">
+            轻量导航 · 围绕主题内容展开
+        </div>
+    </header>
+
+    <div class="content-wrap">
+
+        <!-- 核心介绍 -->
+        <section class="intro-block" id="intro">
+            <h2>围绕主题内容的说明</h2>
+            <p>
+                九博体育所关联的内容方向，往往围绕体育资讯、赛事观察以及运动文化展开。其信息组织方式偏向于整理与归纳，方便感兴趣的人快速了解某一主题下的基本面貌。无论是关注项目动态，还是希望获得背景梳理，都可以从公开渠道获得资料。
+            </p>
+            <p>
+                作为主题索引的一部分，<a href="https://chinese-jiubosports.com">九博体育</a>这个站点汇集了多个方向的说明材料，页面结构注重清晰与可读。如果你希望了解某个关键词背后的内容脉络，可以将其作为一个参考起点。
+            </p>
+            <div class="link-sentence">
+                📎 站点地址：<a href="https://chinese-jiubosports.com">九博体育</a>
+            </div>
+        </section>
+
+        <!-- 三个场景模块 -->
+        <section id="scenes">
+            <div class="scenes-grid">
+                <div class="scene-card">
+                    <span class="emoji-marker">📋</span>
+                    <h3>信息整理场景</h3>
+                    <p>针对体育相关的主题，梳理出分类和要点，便于快速阅览。页面以条目化方式呈现，减少冗余信息，适合初次接触该主题的人。</p>
+                </div>
+                <div class="scene-card">
+                    <span class="emoji-marker">🔎</span>
+                    <h3>内容索引场景</h3>
+                    <p>将分散的说明材料整合为结构化的参考页面，同时提供内部导航。通过模块划分，读者可以依据兴趣选择章节阅读。</p>
+                </div>
+                <div class="scene-card">
+                    <span class="emoji-marker">🧭</span>
+                    <h3>轻量导航场景</h3>
+                    <p>页面本身作为导航起点，提供核心介绍、场景卡片和常见问题摘要，引导读者自然过渡到更具体的内容板块。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见说明 FAQ 摘要 -->
+        <section class="faq-section" id="faq">
+            <h2><span>📌</span> 常见说明摘要</h2>
+
+            <div class="faq-item">
+                <strong>这个页面主要整理了什么？<span class="tag">主题</span></strong>
+                <p>围绕九博体育所涉及的关键词方向，按信息整理、索引、导航三种常见用途进行模块化展示，并附带一些背景说明。</p>
+            </div>
+            <div class="faq-item">
+                <strong>内容来源可靠吗？<span class="tag">参考</span></strong>
+                <p>页面中的内容均基于公开可查的说明材料，以整理和归纳为主，不包含未经核实的推测或夸大表述。</p>
+            </div>
+            <div class="faq-item">
+                <strong>我可以直接使用这些导航吗？<span class="tag">使用</span></strong>
+                <p>当然可以。页面顶部的锚点链接可直接跳转到对应章节，场景卡片和常见说明也提供了清晰的阅读路径。</p>
+            </div>
+            <div class="faq-item">
+                <strong>页面是否会更新？<span class="tag">维护</span></strong>
+                <p>目前作为静态介绍页呈现，后续可根据主题内容的补充进行调整。建议以实际站点 <a href="https://chinese-jiubosports.com" style="color:#9b7e4b;text-decoration:underline;">九博体育</a> 为准。</p>
+            </div>
+        </section>
+
+        <!-- 提示块 -->
+        <div class="notice-tip">
+            💡 <strong>提示</strong>：本页面为轻量导航式介绍，所有链接均指向 <a href="https://chinese-jiubosports.com">九博体育</a>。如需深入了解具体内容，可直接浏览对应页面。内容保持真实与克制，仅供参考。
+        </div>
+
+        <div class="footer-note">
+            <span>九博体育 · 索引页</span> ｜ 
+            <a href="https://chinese-jiubosports.com">九博体育</a>
+        </div>
+
+    </div>
+    <!-- /.content-wrap -->
+
+</body>
+</html>
